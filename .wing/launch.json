@@ -2,36 +2,36 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "启动",
-			"type": "node",
+			"name": "Wing 内置播放器调试",
+			"type": "chrome",
 			"request": "launch",
-			"program": "${workspaceRoot}/out/main.js",
-			"stopOnEntry": false,
-			"args": [],
-			"cwd": "${workspaceRoot}",
-			"preLaunchTask": null,
-			"runtimeExecutable": null,
-			"runtimeArgs": [
-				"--nolazy"
-			],
-			"env": {
-				"NODE_ENV": "development"
-			},
-			"externalConsole": false,
+			"file": "index.html",
+			"runtimeExecutable": "${execPath}",
+			"useBuildInServer": true,
 			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/out"
+			"webRoot": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"port": 3003
 		},
 		{
-			"name": "附加",
-			"type": "node",
+			"name": "使用本机 Chrome 调试",
+			"type": "chrome",
+			"request": "launch",
+			"file": "index.html",
+			"runtimeExecutable": null,
+			"useBuildInServer": true,
+			"sourceMaps": true,
+			"webRoot": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"userDataDir": "${tmpdir}",
+			"port": 3003
+		},
+		{
+			"name": "附加到 Chrome 进程",
+			"type": "chrome",
 			"request": "attach",
-			"port": 5858,
-			"address": "localhost",
-			"restart": false,
-			"sourceMaps": false,
-			"outDir": null,
-			"localRoot": "${workspaceRoot}",
-			"remoteRoot": null
+			"port": 9222,
+			"webRoot": "${workspaceRoot}"
 		}
 	]
 }
