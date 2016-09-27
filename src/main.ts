@@ -1,28 +1,30 @@
-class Greeter {
-    element: HTMLElement;
-    span: HTMLElement;
-    timerToken: number;
+ var i : number = 0;
+ var j : number = 0;
+ var n : number = 5;
+ var f : number = 0;
+ 
+ var space = "";
+ var star = "";
 
-    constructor(element: HTMLElement) {
-        this.element = element;
-        this.element.innerHTML += "The time is: ";
-        this.span = document.createElement('span');
-        this.element.appendChild(this.span);
-        this.span.innerText = new Date().toUTCString();
-    }
+ function drawPyramid(n : number) : void{
+     for(i = 0 ; i < n; i++){
+         for(j = 0; j < n - i; j++){
+             space = space + " ";
+         }
+         for(j = 0; j < 2 * i + 1; j++){
+             star = star + "*";
+         }
+         console.log(space + star);
+         space = ""
+         star = ""
+     }
+ }
 
-    start() {
-        this.timerToken = setInterval(() => this.span.innerHTML = new Date().toUTCString(), 500);
-    }
+ f = getf(n);
+ drawPyramid(f);
 
-    stop() {
-        clearTimeout(this.timerToken);
-    }
+ function getf(f : number) : number{
+     return f;
+ }
 
-}
 
-window.onload = () => {
-    var el = document.getElementById('content');
-    var greeter = new Greeter(el);
-    greeter.start();
-};
